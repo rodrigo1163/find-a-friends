@@ -1,3 +1,4 @@
+import { OrgsAlreadyExistsError } from '@/use-cases/erros/orgs-already-exists-error'
 import { makeCreateOrgsUseCase } from '@/use-cases/factories/make-create-orgs-use-case'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import z from 'zod'
@@ -32,14 +33,24 @@ export async function createOrgController(
     }),
   })
 
-  const { org, addressOrg } = createOrgBodySchema.parse(request.body)
+  try {
+    const { org, addressOrg } = createOrgBodySchema.parse(request.body)
 
-  const createOrgUseCase = makeCreateOrgsUseCase()
+    const createOrgUseCase = makeCreateOrgsUseCase()
 
-  await createOrgUseCase.execute({
-    org,
-    addressOrg,
-  })
+    await createOrgUseCase.execute({
+      org,
+      addressOrg,
+    })
 
-  return reply.status(201).send()
+    return reply.status(201).send()
+  } catch (error) {
+    if (error instanceof OrgsAlreadyExistsError) {
+      return reply.status(409).send({
+        message: error.message,
+      })
+    }
+
+    throw error
+  }
 }
