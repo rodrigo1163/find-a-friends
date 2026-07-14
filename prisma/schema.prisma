@@ -11,3 +11,104 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Org {
+  id            String   @id @default(uuid())
+  name          String
+  email         String   @unique
+  phone         String
+  password_hash String
+  createdAt     DateTime @default(now())
+
+  address AddressOrg?
+  pets    Pet[]
+
+  @@map("orgs")
+}
+
+model AddressOrg {
+  id String @id @default(uuid())
+
+  org_id String @unique
+  org    Org    @relation(fields: [org_id], references: [id])
+
+  cep          String
+  street       String
+  number       String
+  neighborhood String
+  city         String
+  state        String
+  complement   String?
+  reference    String?
+  country      String  @default("Brasil")
+  latitude     Decimal
+  longitude    Decimal
+}
+
+enum PetAgeGroup {
+  PUPPY
+  YOUNG
+  ADULT
+  SENIOR
+}
+
+enum PetSize {
+  SMALL
+  MEDIUM
+  LARGE
+}
+
+enum PetEnergyLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum PetIndependenceLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum PetEnvironment {
+  SMALL
+  MEDIUM
+  SPACIOUS
+}
+
+enum PetType {
+  DOG
+  CAT
+}
+
+model Pet {
+  id                   String               @id @default(uuid())
+  name                 String
+  description          String
+  type                 PetType
+  ageGroup             PetAgeGroup
+  size                 PetSize
+  energyLevel          PetEnergyLevel
+  independenceLevel    PetIndependenceLevel
+  environment          PetEnvironment
+  adoptionRequirements String
+  images               PetImage[]
+
+  createdAt DateTime @default(now())
+
+  org_id String?
+  org    Org?    @relation(fields: [org_id], references: [id])
+
+  @@map("pets")
+}
+
+model PetImage {
+  id String @id @default(uuid())
+
+  url    String
+  order  Int?
+  isMain Boolean @default(false)
+
+  pet_id String
+  pet    Pet    @relation(fields: [pet_id], references: [id], onDelete: Cascade)
+}
