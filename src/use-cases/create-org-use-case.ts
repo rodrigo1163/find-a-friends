@@ -3,7 +3,7 @@ import { OrgsAlreadyExistsError } from './erros/orgs-already-exists-error'
 import { AddressOrgsRepository } from '@/repositories/address-orgs-repository'
 import { hash } from 'bcryptjs'
 
-import type { Org as OrgResponse } from '../../prisma/generated/prisma/client'
+import type { Org as OrgResponse, AddressOrg as AddressOrgResponse } from '../../prisma/generated/prisma/client'
 
 interface Org {
   name: string
@@ -33,6 +33,7 @@ interface CreateOrgUseCaseProps {
 
 interface CreateOrgUseCaseResponse {
   org: OrgResponse
+  addressOrg: AddressOrgResponse
 }
 
 // SOLID
@@ -44,7 +45,7 @@ export class CreateOrgUseCase {
     const { email, name, password, phone } = org
     const { cep, city, latitude, longitude, neighborhood, number, state, street, complement, country, reference } = addressOrg
 
-    const orgExist = await this.orgsRepository.findByEmail(org.email)
+    const orgExist = await this.orgsRepository.findByEmail(email)
 
     if (orgExist) {
       throw new OrgsAlreadyExistsError()
@@ -59,7 +60,7 @@ export class CreateOrgUseCase {
       phone,
     })
 
-    await this.addressOrgsRepository.create({
+    const createdAddressOrg = await this.addressOrgsRepository.create({
       cep,
       city,
       latitude,
@@ -76,6 +77,7 @@ export class CreateOrgUseCase {
 
     return {
       org: createdOrg,
+      addressOrg: createdAddressOrg
     }
   }
 }
