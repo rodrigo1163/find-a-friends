@@ -8,4 +8,8 @@
  *
  * 🟢 You can import this file directly.
  */
+export type * from './models/Org.js'
+export type * from './models/AddressOrg.js'
+export type * from './models/Pet.js'
+export type * from './models/PetImage.js'
 export type * from './commonInputTypes.js'

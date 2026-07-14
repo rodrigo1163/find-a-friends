@@ -17,4 +17,23 @@ import * as Prisma from './internal/prismaNamespaceBrowser.js'
 export { Prisma }
 export * as $Enums from './enums.js'
 export * from './enums.js';
-
+/**
+ * Model Org
+ * 
+ */
+export type Org = Prisma.OrgModel
+/**
+ * Model AddressOrg
+ * 
+ */
+export type AddressOrg = Prisma.AddressOrgModel
+/**
+ * Model Pet
+ * 
+ */
+export type Pet = Prisma.PetModel
+/**
+ * Model PetImage
+ * 
+ */
+export type PetImage = Prisma.PetImageModel

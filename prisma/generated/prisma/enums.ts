@@ -9,7 +9,55 @@
 * 🟢 You can import this file directly.
 */
 
+export const PetAgeGroup = {
+  PUPPY: 'PUPPY',
+  YOUNG: 'YOUNG',
+  ADULT: 'ADULT',
+  SENIOR: 'SENIOR'
+} as const
+
+export type PetAgeGroup = (typeof PetAgeGroup)[keyof typeof PetAgeGroup]
 
 
-// This file is empty because there are no enums in the schema.
-export {}
+export const PetSize = {
+  SMALL: 'SMALL',
+  MEDIUM: 'MEDIUM',
+  LARGE: 'LARGE'
+} as const
+
+export type PetSize = (typeof PetSize)[keyof typeof PetSize]
+
+
+export const PetEnergyLevel = {
+  LOW: 'LOW',
+  MEDIUM: 'MEDIUM',
+  HIGH: 'HIGH'
+} as const
+
+export type PetEnergyLevel = (typeof PetEnergyLevel)[keyof typeof PetEnergyLevel]
+
+
+export const PetIndependenceLevel = {
+  LOW: 'LOW',
+  MEDIUM: 'MEDIUM',
+  HIGH: 'HIGH'
+} as const
+
+export type PetIndependenceLevel = (typeof PetIndependenceLevel)[keyof typeof PetIndependenceLevel]
+
+
+export const PetEnvironment = {
+  SMALL: 'SMALL',
+  MEDIUM: 'MEDIUM',
+  SPACIOUS: 'SPACIOUS'
+} as const
+
+export type PetEnvironment = (typeof PetEnvironment)[keyof typeof PetEnvironment]
+
+
+export const PetType = {
+  DOG: 'DOG',
+  CAT: 'CAT'
+} as const
+
+export type PetType = (typeof PetType)[keyof typeof PetType]

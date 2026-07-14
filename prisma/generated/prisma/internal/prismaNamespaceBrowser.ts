@@ -51,7 +51,10 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-
+  Org: 'Org',
+  AddressOrg: 'AddressOrg',
+  Pet: 'Pet',
+  PetImage: 'PetImage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -68,4 +71,88 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 } as const)
 
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+
+
+export const OrgScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  phone: 'phone',
+  password_hash: 'password_hash',
+  createdAt: 'createdAt'
+} as const
+
+export type OrgScalarFieldEnum = (typeof OrgScalarFieldEnum)[keyof typeof OrgScalarFieldEnum]
+
+
+export const AddressOrgScalarFieldEnum = {
+  id: 'id',
+  org_id: 'org_id',
+  cep: 'cep',
+  street: 'street',
+  number: 'number',
+  neighborhood: 'neighborhood',
+  city: 'city',
+  state: 'state',
+  complement: 'complement',
+  reference: 'reference',
+  country: 'country',
+  latitude: 'latitude',
+  longitude: 'longitude'
+} as const
+
+export type AddressOrgScalarFieldEnum = (typeof AddressOrgScalarFieldEnum)[keyof typeof AddressOrgScalarFieldEnum]
+
+
+export const PetScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  ageGroup: 'ageGroup',
+  size: 'size',
+  energyLevel: 'energyLevel',
+  independenceLevel: 'independenceLevel',
+  environment: 'environment',
+  adoptionRequirements: 'adoptionRequirements',
+  createdAt: 'createdAt',
+  org_id: 'org_id'
+} as const
+
+export type PetScalarFieldEnum = (typeof PetScalarFieldEnum)[keyof typeof PetScalarFieldEnum]
+
+
+export const PetImageScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  order: 'order',
+  isMain: 'isMain',
+  pet_id: 'pet_id'
+} as const
+
+export type PetImageScalarFieldEnum = (typeof PetImageScalarFieldEnum)[keyof typeof PetImageScalarFieldEnum]
+
+
+export const SortOrder = {
+  asc: 'asc',
+  desc: 'desc'
+} as const
+
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 

@@ -384,7 +384,10 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-
+  Org: 'Org',
+  AddressOrg: 'AddressOrg',
+  Pet: 'Pet',
+  PetImage: 'PetImage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -400,10 +403,307 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: never
+    modelProps: "org" | "addressOrg" | "pet" | "petImage"
     txIsolationLevel: TransactionIsolationLevel
   }
-  model: {}
+  model: {
+    Org: {
+      payload: Prisma.$OrgPayload<ExtArgs>
+      fields: Prisma.OrgFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrgFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrgPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrgFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrgPayload>
+        }
+        findFirst: {
+          args: Prisma.OrgFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrgPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrgFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrgPayload>
+        }
+        findMany: {
+          args: Prisma.OrgFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrgPayload>[]
+        }
+        create: {
+          args: Prisma.OrgCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrgPayload>
+        }
+        createMany: {
+          args: Prisma.OrgCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrgCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrgPayload>[]
+        }
+        delete: {
+          args: Prisma.OrgDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrgPayload>
+        }
+        update: {
+          args: Prisma.OrgUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrgPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrgDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrgUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrgUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrgPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrgUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrgPayload>
+        }
+        aggregate: {
+          args: Prisma.OrgAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrg>
+        }
+        groupBy: {
+          args: Prisma.OrgGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrgGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrgCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrgCountAggregateOutputType> | number
+        }
+      }
+    }
+    AddressOrg: {
+      payload: Prisma.$AddressOrgPayload<ExtArgs>
+      fields: Prisma.AddressOrgFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AddressOrgFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AddressOrgPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AddressOrgFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AddressOrgPayload>
+        }
+        findFirst: {
+          args: Prisma.AddressOrgFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AddressOrgPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AddressOrgFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AddressOrgPayload>
+        }
+        findMany: {
+          args: Prisma.AddressOrgFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AddressOrgPayload>[]
+        }
+        create: {
+          args: Prisma.AddressOrgCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AddressOrgPayload>
+        }
+        createMany: {
+          args: Prisma.AddressOrgCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AddressOrgCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AddressOrgPayload>[]
+        }
+        delete: {
+          args: Prisma.AddressOrgDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AddressOrgPayload>
+        }
+        update: {
+          args: Prisma.AddressOrgUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AddressOrgPayload>
+        }
+        deleteMany: {
+          args: Prisma.AddressOrgDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AddressOrgUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AddressOrgUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AddressOrgPayload>[]
+        }
+        upsert: {
+          args: Prisma.AddressOrgUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AddressOrgPayload>
+        }
+        aggregate: {
+          args: Prisma.AddressOrgAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAddressOrg>
+        }
+        groupBy: {
+          args: Prisma.AddressOrgGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AddressOrgGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AddressOrgCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AddressOrgCountAggregateOutputType> | number
+        }
+      }
+    }
+    Pet: {
+      payload: Prisma.$PetPayload<ExtArgs>
+      fields: Prisma.PetFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PetFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PetFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetPayload>
+        }
+        findFirst: {
+          args: Prisma.PetFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PetFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetPayload>
+        }
+        findMany: {
+          args: Prisma.PetFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetPayload>[]
+        }
+        create: {
+          args: Prisma.PetCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetPayload>
+        }
+        createMany: {
+          args: Prisma.PetCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PetCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetPayload>[]
+        }
+        delete: {
+          args: Prisma.PetDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetPayload>
+        }
+        update: {
+          args: Prisma.PetUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetPayload>
+        }
+        deleteMany: {
+          args: Prisma.PetDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PetUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PetUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetPayload>[]
+        }
+        upsert: {
+          args: Prisma.PetUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetPayload>
+        }
+        aggregate: {
+          args: Prisma.PetAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePet>
+        }
+        groupBy: {
+          args: Prisma.PetGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PetGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PetCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PetCountAggregateOutputType> | number
+        }
+      }
+    }
+    PetImage: {
+      payload: Prisma.$PetImagePayload<ExtArgs>
+      fields: Prisma.PetImageFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PetImageFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetImagePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PetImageFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetImagePayload>
+        }
+        findFirst: {
+          args: Prisma.PetImageFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetImagePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PetImageFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetImagePayload>
+        }
+        findMany: {
+          args: Prisma.PetImageFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetImagePayload>[]
+        }
+        create: {
+          args: Prisma.PetImageCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetImagePayload>
+        }
+        createMany: {
+          args: Prisma.PetImageCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PetImageCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetImagePayload>[]
+        }
+        delete: {
+          args: Prisma.PetImageDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetImagePayload>
+        }
+        update: {
+          args: Prisma.PetImageUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetImagePayload>
+        }
+        deleteMany: {
+          args: Prisma.PetImageDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PetImageUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PetImageUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetImagePayload>[]
+        }
+        upsert: {
+          args: Prisma.PetImageUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PetImagePayload>
+        }
+        aggregate: {
+          args: Prisma.PetImageAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePetImage>
+        }
+        groupBy: {
+          args: Prisma.PetImageGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PetImageGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PetImageCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PetImageCountAggregateOutputType> | number
+        }
+      }
+    }
+  }
 } & {
   other: {
     payload: any
@@ -442,7 +742,255 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+export const OrgScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  phone: 'phone',
+  password_hash: 'password_hash',
+  createdAt: 'createdAt'
+} as const
 
+export type OrgScalarFieldEnum = (typeof OrgScalarFieldEnum)[keyof typeof OrgScalarFieldEnum]
+
+
+export const AddressOrgScalarFieldEnum = {
+  id: 'id',
+  org_id: 'org_id',
+  cep: 'cep',
+  street: 'street',
+  number: 'number',
+  neighborhood: 'neighborhood',
+  city: 'city',
+  state: 'state',
+  complement: 'complement',
+  reference: 'reference',
+  country: 'country',
+  latitude: 'latitude',
+  longitude: 'longitude'
+} as const
+
+export type AddressOrgScalarFieldEnum = (typeof AddressOrgScalarFieldEnum)[keyof typeof AddressOrgScalarFieldEnum]
+
+
+export const PetScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  ageGroup: 'ageGroup',
+  size: 'size',
+  energyLevel: 'energyLevel',
+  independenceLevel: 'independenceLevel',
+  environment: 'environment',
+  adoptionRequirements: 'adoptionRequirements',
+  createdAt: 'createdAt',
+  org_id: 'org_id'
+} as const
+
+export type PetScalarFieldEnum = (typeof PetScalarFieldEnum)[keyof typeof PetScalarFieldEnum]
+
+
+export const PetImageScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  order: 'order',
+  isMain: 'isMain',
+  pet_id: 'pet_id'
+} as const
+
+export type PetImageScalarFieldEnum = (typeof PetImageScalarFieldEnum)[keyof typeof PetImageScalarFieldEnum]
+
+
+export const SortOrder = {
+  asc: 'asc',
+  desc: 'desc'
+} as const
+
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+} as const
+
+export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+
+/**
+ * Field references
+ */
+
+
+/**
+ * Reference to a field of type 'String'
+ */
+export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+/**
+ * Reference to a field of type 'String[]'
+ */
+export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime'
+ */
+export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime[]'
+ */
+export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Decimal'
+ */
+export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+/**
+ * Reference to a field of type 'Decimal[]'
+ */
+export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PetType'
+ */
+export type EnumPetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PetType'>
+    
+
+
+/**
+ * Reference to a field of type 'PetType[]'
+ */
+export type ListEnumPetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PetType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PetAgeGroup'
+ */
+export type EnumPetAgeGroupFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PetAgeGroup'>
+    
+
+
+/**
+ * Reference to a field of type 'PetAgeGroup[]'
+ */
+export type ListEnumPetAgeGroupFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PetAgeGroup[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PetSize'
+ */
+export type EnumPetSizeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PetSize'>
+    
+
+
+/**
+ * Reference to a field of type 'PetSize[]'
+ */
+export type ListEnumPetSizeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PetSize[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PetEnergyLevel'
+ */
+export type EnumPetEnergyLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PetEnergyLevel'>
+    
+
+
+/**
+ * Reference to a field of type 'PetEnergyLevel[]'
+ */
+export type ListEnumPetEnergyLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PetEnergyLevel[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PetIndependenceLevel'
+ */
+export type EnumPetIndependenceLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PetIndependenceLevel'>
+    
+
+
+/**
+ * Reference to a field of type 'PetIndependenceLevel[]'
+ */
+export type ListEnumPetIndependenceLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PetIndependenceLevel[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PetEnvironment'
+ */
+export type EnumPetEnvironmentFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PetEnvironment'>
+    
+
+
+/**
+ * Reference to a field of type 'PetEnvironment[]'
+ */
+export type ListEnumPetEnvironmentFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PetEnvironment[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Int'
+ */
+export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+/**
+ * Reference to a field of type 'Int[]'
+ */
+export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
+ * Reference to a field of type 'Float'
+ */
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+/**
+ * Reference to a field of type 'Float[]'
+ */
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
 
 /**
  * Batch Payload for updateMany & deleteMany & createMany
@@ -553,7 +1101,12 @@ export type PrismaClientOptions = ({
    */
   queryPlanCacheMaxSize?: number
 }
-export type GlobalOmitConfig = {}
+export type GlobalOmitConfig = {
+  org?: Prisma.OrgOmit
+  addressOrg?: Prisma.AddressOrgOmit
+  pet?: Prisma.PetOmit
+  petImage?: Prisma.PetImageOmit
+}
 
 /* Types for Logging */
 export type LogLevel = 'info' | 'query' | 'warn' | 'error'
