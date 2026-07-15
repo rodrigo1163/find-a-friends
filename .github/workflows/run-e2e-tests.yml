@@ -39,5 +39,5 @@ jobs:
     - run: pnpm test:e2e
       env:
           DATABASE_URL: postgresql://docker:docker@localhost:5432/findafriends
-          JTW_SECRET: testing-secret
+          JWT_SECRET: testing-secret
 
