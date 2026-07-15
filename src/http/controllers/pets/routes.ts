@@ -8,7 +8,5 @@ export async function petsRoutes(app: FastifyInstance) {
   app.get('/pets', fetchPetsController)
   app.get('/pets/:id', getPetController)
 
-  app.addHook('onRequest', verifyJwt)
-
-  app.post('/pets', createPetController)
+  app.post('/pets', { onRequest: [verifyJwt] }, createPetController)
 }
