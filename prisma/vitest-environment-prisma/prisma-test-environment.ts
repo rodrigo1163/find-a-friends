@@ -39,7 +39,7 @@ export default <Environment>{
 
     process.env.DATABASE_URL = databaseUrl
 
-    execSync('npx prisma db push')
+    execSync('pnpm prisma db push')
 
     return {
       async teardown() {
