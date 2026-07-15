@@ -1,6 +1,7 @@
 import { InMemoryPetsRepository } from '@/repositories/in-memory/in-memory-pets-repository'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { GetPetUseCase } from './get-pet-use-case'
+import { ResourceNotFoundError } from './erros/resource-not-found-error'
 
 let petsRepository: InMemoryPetsRepository
 let sut: GetPetUseCase
@@ -38,8 +39,8 @@ describe('Get Pet Use Case', () => {
   })
 
   it('should return null when pet does not exist', async () => {
-    const result = await sut.execute('non-existing-pet-id')
+    
 
-    expect(result).toBeNull()
+    await expect(() => sut.execute('non-existing-pet-id')).rejects.toBeInstanceOf(ResourceNotFoundError)
   })
 })
