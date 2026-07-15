@@ -1,0 +1,43 @@
+name: Run E2E Tests
+
+on: [pull_request]
+
+jobs: 
+  run-e2e-tests:
+    name: Run E2E Tests
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: bitnami/postgresql
+        ports:
+          - 5432:5432
+        env:
+          POSTGRESQL_USERNAME: docker
+          POSTGRESQL_PASSWORD: docker
+          POSTGRESQL_DATABASE: findafriends
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - uses: pnpm/action-setup@v4
+      with:
+        version: 10
+
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24
+        cache: pnpm
+
+    - run: pnpm install --frozen-lockfile
+
+    - name: Generate Prisma Client
+      run: pnpm exec prisma generate
+      env:
+        DATABASE_URL: postgresql://docker:docker@localhost:5432/findafriends
+
+    - run: pnpm test:e2e
+      env:
+          DATABASE_URL: postgresql://docker:docker@localhost:5432/findafriends
+          JTW_SECRET: testing-secret
+

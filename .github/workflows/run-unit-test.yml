@@ -1,0 +1,30 @@
+name: Run Unit Tests
+
+on: [push]
+
+jobs: 
+  run-unit-tests:
+    name: Run Unit Test
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v6
+
+    - uses: pnpm/action-setup@v4
+      with:
+        version: 10
+
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24
+        cache: pnpm
+
+    - run: pnpm install --frozen-lockfile
+
+    - name: Generate Prisma Client
+      run: pnpm exec prisma generate
+      env:
+        DATABASE_URL: postgresql://postgres:postgres@localhost:5432/findafriends
+
+    - run: pnpm test
+
