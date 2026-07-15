@@ -14,7 +14,16 @@ export default defineConfig({
           include: ['src/use-cases/**/*.spec.ts'],
           environment: 'node',
         },
-      }
+      },
+      {
+        extends: true,
+        test: {
+          name: 'e2e',
+          include: ['src/http/controllers/**/*.spec.ts'],
+          environment:
+            './prisma/vitest-environment-prisma/prisma-test-environment.ts',
+        },
+      },
     ],
   },
 })
